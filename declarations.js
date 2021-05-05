@@ -11,5 +11,7 @@ const nested = {
   obj: {str: "String", num: 1, bool: true}
 }
 Object.freeze(nested)
+Object.freeze(nested.arg)
+Object.freeze(nested.obj)
 Object.freeze(arr)
 Object.freeze(obj)
