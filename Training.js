@@ -1,181 +1,83 @@
-// Data structures allow us to structure and organise multiple primitive data
-
 /*
-  Object
+  Methods
 
-  Objects are the most common data structure in JavaScript
-  It is the base to all other data structures
+  Methods are a special kind of functions
+  That are linked to some data.
 
-  They hold properties
-  A property is a key / value pair
+  Each types have it's own methods to help you deal with common tasks
+  Learn them, and use them.
+  Read "the javascriptures" MDN to know all about them.
 
-  The key is a string and we associate it to a value, very much like variables
+  To actually use any methods you can use . to access any of them
+  just like any normal property
+  Then you can call them like normal functions
 
-  We use the curly braces `{}` to create an object
+  'pouet'.toUpperCase() // will return 'POUET'
+
 */
 
-console.log({}) // Loggin an empty object
+// Let's testout the example from before
+console.log('pouet'.toUpperCase())
+// here we call the string method toUpperCase
+// We can access it just like any object property
+// But unlike a function, it takes no arguments
+// It's using the source string as a context
+// So it's like it had an hidden first argument that is the string itself
+// a normal function call could have been: toUpperCase('pouet')
+// But javascript only give us toUpperCase as a method so, we use that.
 
-// To create a property we use the colon `:`
-// The first string is a key, and after the colon is the value
-console.log({ 'awesome key': 'great value' })
-// here I set the string 'great value' to the key 'awesome key'
-// I repeate, keys are always strings
+const baseStr = 'hey-this-is-fun'
 
-// Now, the true power of objects lies in storing multiple properties in them
-// To do that we just separate properties with a comma `,` like so :
-console.log({ 'first key': 1, 'second key': 22 })
-// here I set the number 1 to the key 'first key'
-// and the number 22 to 'second key'
+// Some methods takes arguments, and we can use them from variables
+console.log(baseStr.split('-'))
+// Here we call split, which takes string that it will use to split our source
+// It returns an Array of each string parts
+// Try to play a bit with split, it's a very usefull method
 
-// for big objects we split them into multiple lines, one per property
-console.log({
-  'first key': 1,
-  'second key': 22,
-  'third key': 333,
-  'fourth key': 4444,
-  'the last key': 'the end',
-})
+// But the real fun comes when we start to chain them
+console.log(baseStr.split('-').join('_'))
+// So here I split on dashes, it return an array that I join with underscore
+// While split transfrom a string to an array,
+// Join allow you to get from an Array to a string
 
-// If our key is a valid identifiers (like variables identifiers)
-// We can omit the quotes ''
-console.log({ validKey: 'valid value !' })
-// Since this syntax is lighter it is prefered in JavaScript
-// so try to use valid identifiers and camelCase whenever possible
-// (same rules as variabes)
+// We can easly convert a string to an Array of letters
+// with a split on an empty string
+console.log(baseStr.split(''))
 
-// Ok let's see how we can model usefull data with that
-// here's an address
-console.log({
-  country: 'France',
-  town: 'Toulouse',
-  postalCode: 31000,
-  streetNumber: 175,
-  streetLabel: 'boulevard',
-  streetName: 'Matabiau',
-})
+// Likely we can use an empty string to join without separators
+console.log(baseStr.split('-').join(''))
 
-// Now since objects are values, we can nest them !
-// let's refactor a bit our previous object to avoid repetition in the keys
-console.log({
-  country: 'France',
-  town: 'Toulouse',
-  postalCode: 31000,
-  street: {
-    number: 175,
-    label: 'boulevard',
-    name: 'Matabiau',
-  },
-})
+// Well from this point on they are pretty much like functions
+// You need to use them to get the hang of it.
 
-// And like all values, we can store them in variables
-const myStreet = {
-  number: 175,
-  label: 'boulevard',
-  name: 'Matabiau',
-}
+// Some work with split / join
+// Capitalize
 
-// sweet, let's log that variable value
-console.log(myStreet)
-
-// Guess what, we can use variables values when creating objects !
-console.log({
-  country: 'France',
-  town: 'Toulouse',
-  postalCode: 31000,
-  street: myStreet, // here, the value contained in myStreet is used
-})
-
-// Let's store this address into a variable
-const address = {
-  country: 'France',
-  town: 'Toulouse',
-  postalCode: 31000,
-  street: myStreet,
-}
-
-// Now that would be a more complete user object :
-console.log({
-  firstname: 'Clement',
-  lastname: 'Denis',
-  email: 'cdenis@thot.space',
-  age: 29,
-  address: address,
-})
-
-// If we use a variable as a property, like here in address
-// We can omit the key, JavaScript will use the variable identifier as it's key
-// So we can rewrite the previous user object like so :
-console.log({
-  firstname: 'Clement',
-  lastname: 'Denis',
-  email: 'cdenis@thot.space',
-  age: 29,
-  address, // look ma, no key !
-})
-// Of course this works only when our variable identifier is our key.
-// That's it on declaring objects !
+// after map reduce filter
+// Jaden Smith Case
 
 /*
-  Array
+  The more you know
 
-  They are used to keep ordered lists of values.
+  Methods are a part of OOP (object oriented programing)
+  But we won't really use anything from OOP beside built-in methods
 
-  In JavaScript, Arrays are Objects with special rules:
-  - They use number as keys, we call those keys index (starting at 0)
-  - They keep their content in order
-  - They have a special property 'length' to get the size of our list
-  - And much, much more (but that's enough for now)
+  First thing interesting to note is that all of our data types
+  have a Constructor
 
-  We use the square brackets `[]` to create an Array
+  Constructors are Functions that are used to construct new data of this type
+  We rarely need them for our usual data types as they have a special syntax
+  that do it for us.
+
+  Constructors are: Boolean, Number, String, Array, Object
+  Some constructors contain functions like Array.isArray or Object.keys
+  those are just normal functions.
+
+  But the shared methods of our data types are in a prototype.
+  Which is just an object at the property prototype of our function
+
+  like so: String.prototype
+  And again, read "the javascriptures" MDN to get a detail list
+
+
 */
-
-console.log([]) // Here I log an empty array
-
-console.log([1, 2, 3]) // We don't need to specify the index
-// that would roughly translate to this object:
-console.log({ '0': 1, '1': 2, '2': 3 })
-
-// So if we have a bunch of values we want to group together
-// but the keys are not important, we can use an array
-// to automaticaly create ordered index for our values.
-
-// Overall the syntax to create them is quite simpler than objects
-// since we don't need to specify the keys.
-
-// Just like objects, they are values
-// So like all other values we can store them in variables
-
-const allowedCountries = ['France', 'Spain', 'Portugal', 'Russia', 'Iceland']
-
-console.log(allowedCountries)
-
-// Of course we can make arrays of arrays
-console.log([
-  [32, 45],
-  [-38, 57],
-  [87, 99],
-  [57, -2],
-  [-74, -29],
-])
-
-// we can use variables values
-console.log([allowedCountries, allowedCountries, allowedCountries])
-// Here I made an array with 3 countries
-
-// And we can freely mix arrays and objects, any values really, surprise me
-console.log({
-  head: [
-    { x: 5, y: 5 },
-    { x: 6, y: 4 },
-    { x: 7, y: 3 },
-  ],
-  tail: [
-    { x: 3, y: 7 },
-    { x: 4, y: 6 },
-    { x: 5, y: 5 },
-  ],
-})
-
-// This way we can model our data to have a structure that
-// help us understand it and access it
