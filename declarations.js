@@ -1,5 +1,5 @@
 const escapeStr = '`'+"\\"+'/'+'"'+"'"
-const arr = [4,2]
+const arr = [4,"'2'"]
 const obj = {
   str: 'String',
   num: 1234,
@@ -7,3 +7,5 @@ const obj = {
   undef: undefined
 }
 const nested = [4, undefined, "'2'"] + {str: "String", num: 1, bool: false}
+
+console.log(arr)
