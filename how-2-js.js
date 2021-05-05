@@ -1,6 +1,4 @@
-console.log('Hello World')
-
-var str = new String()
-var num = new Number()
-var bool = new Boolean()
-var undef = new undefined
+let str = "String"
+let num = 1234
+let bool = true
+let undef = undefined
