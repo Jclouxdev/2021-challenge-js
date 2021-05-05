@@ -1,6 +1,6 @@
 console.log('Hello World')
 
-const str = String
-const num = Number
-const bool = Boolean
-const undef = undefined
+var str = new String()
+var num = new Number()
+var bool = new Boolean()
+var undef = new undefined
