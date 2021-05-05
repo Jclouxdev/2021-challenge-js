@@ -18,9 +18,7 @@ const abs = (m) => {
   else if (m < 0) {
     return m * (-1)
   }
-  else if (m = 0) {
+  else if (m == 0) {
     return 0
   }
 }
-
-console.log(abs(5))
