@@ -7,5 +7,6 @@ const obj = {
   undef: undefined
 }
 const nested = [4, undefined, '2'] + {str: "String", num: 1, bool: false}
-
-console.log(arr)
+Object.freeze(nested)
+Object.freeze(arr)
+Object.freeze(obj)
