@@ -8,8 +8,8 @@ whisper that take a string and return it in lower case and surround it with *
 Create a capitalize function that takes a string and transforms it to upper case only for the first letter, and in lowercase for the rest of the string
 */
 
-const words = 'Bonjour ceci est un test'.split(' ')
-const sentence = ['Bonjour', 'ceci', 'est', 'un autre test'].join(' ')
-const yell = 'Bonjour le test'.toUpperCase()
-const whisper = '*' + 'Chuchotement'.toLowerCase() + '*'
-const capitalize = 't'.toUpperCase() + 'his is a string'.toLowerCase()
+const words = (n) => n.split(' ')
+const sentence = (m) => m.join(' ')
+const yell = (e) => e.toUpperCase()
+const whisper = (f) => '*' + f.toLowerCase() + '*'
+const capitalize = (g) => g[0].toUpperCase() + g.slice(1).toLowerCase()
