@@ -6,4 +6,4 @@ const obj = {
   bool: true,
   undef: undefined
 }
-const nested = [4, undefined, '2'] + {str: "String", num: 1, bool: false}
+const nested = [4, undefined, "'2'"] + {str: "String", num: 1, bool: false}
