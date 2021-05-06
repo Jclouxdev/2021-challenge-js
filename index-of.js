@@ -42,9 +42,10 @@ const includes = (el, index) => {
   for(let i = 0; i < el.length; i++) {
     if(el[i] === index) {
       answer = true
+      return answer
     }
   }
   return answer
 }
 
-console.log(lastIndexOf([0, 0, "t", "t"], "t", 3))
+console.log(lastIndexOf("bigArray", {}))
