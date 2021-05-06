@@ -5,10 +5,10 @@ Of course you may not use the method directly
 */
 
 var str = ''
-const repeat = (size, text) => {
+const repeat = (text, size) => {
   for (let i = 0; i < size; i++) {
     str = str + text
   } return str
 }
 
-console.log(repeat(5, 'Test'))
+console.log(repeat('a', 3))
