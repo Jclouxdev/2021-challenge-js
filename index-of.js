@@ -38,7 +38,7 @@ const lastIndexOf = (el, index, fromIndex) => {
 }
 
 const includes = (el, index) => {
-  let answer = -1
+  let answer = false
   for(let i = 0; i < el.length; i++) {
     if(el[i] === index) {
       answer = true
