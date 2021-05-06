@@ -1,9 +1,10 @@
 const multiply = (a, b) => {
-  let result = 0
-  for (let i = 0; i < a; i++) {
-    result = result + b
-  }
-  return result
+  //let result = 0
+  //for (let i = 0; i < a; i++) {
+  //  result = result + b
+  //}
+  //return result
+  return Math.imul(a, b)
 }
 
 const divide = (a, b) => {
@@ -34,8 +35,9 @@ const divide = (a, b) => {
 }
 
 const modulo = (a, b) => {
-  let t = (a - b *
-    parseInt(a / b));
+  let c = a - b;
+  let d = parseInt(a / b);
+  let t = Math.imul(c, d)
   return t;
 }
 
