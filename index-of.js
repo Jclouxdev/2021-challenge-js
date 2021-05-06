@@ -25,7 +25,7 @@ const indexOf = (el, index, fromIndex) => {
 const lastIndexOf = (el, index, fromIndex) => {
   if(!fromIndex) {fromIndex = 0}
   let answer = -1
-  for(let i = el.length - fromIndex ; i >= 0; i--) {
+  for(let i = el.length ; i >= fromIndex; i--) {
     if(el[i] === index) {
       answer = i
       return answer
@@ -44,4 +44,4 @@ const includes = (el, index) => {
   return answer
 }
 
-console.log(lastIndexOf(["t", 0, 0, "t"], "t", 2))
+console.log(lastIndexOf([0, 0, "t", "t"], "t", 3))
