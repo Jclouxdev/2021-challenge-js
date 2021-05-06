@@ -42,7 +42,6 @@ const includes = (el, index) => {
   for(let i = 0; i < el.length; i++) {
     if(el[i] === index) {
       answer = true
-      return answer
     }
   }
   return answer
