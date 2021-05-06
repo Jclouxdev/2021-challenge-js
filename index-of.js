@@ -10,16 +10,16 @@ functions should have an array element as first argument, both indexOf and lastI
 fromIndex argument that allows you to begin searching from a specific index.
 */
 
-const indexOf = (el, index) => {
-  for(let i = 0; i < el.length; i++) {
+const indexOf = (el, index, fromIndex) => {
+  for(let i = 0 + fromIndex; i < el.length; i++) {
     if(el[i] === index) {
       return i
     }
   }
 }
 
-const lastIndexOf = (el, index) => {
-  for(let i = el.length; i > 0; i--) {
+const lastIndexOf = (el, index, fromIndex) => {
+  for(let i = el.length + fromIndex; i > 0; i--) {
     if(el[i] === index) {
       return i
     }
@@ -36,4 +36,4 @@ const includes = (el, index) => {
   return answer
 }
 
-console.log(indexOf([1, 2, 3, 4, 5, 4, 3, 2, 1], 2))
+console.log(indexOf(["t", 0, 0, "t"], "t", 1))
