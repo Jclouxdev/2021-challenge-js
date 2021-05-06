@@ -11,7 +11,8 @@ fromIndex argument that allows you to begin searching from a specific index.
 */
 
 const indexOf = (el, index, fromIndex) => {
-  for(let i = 0 + fromIndex; i < el.length; i++) {
+  if(!fromIndex) {fromIndex = 0}
+  for(let i = 0 + fromIndex ; i < el.length; i++) {
     if(el[i] === index) {
       return i
     }
@@ -19,6 +20,7 @@ const indexOf = (el, index, fromIndex) => {
 }
 
 const lastIndexOf = (el, index, fromIndex) => {
+  if(!fromIndex) {fromIndex = 0}
   for(let i = el.length + fromIndex; i > 0; i--) {
     if(el[i] === index) {
       return i
@@ -36,4 +38,4 @@ const includes = (el, index) => {
   return answer
 }
 
-console.log(indexOf(["t", 0, 0, "t"], "t", 1))
+console.log(lastIndexOf([1, 2, 3, 4, 5, 4, 3, 2, 1], 2))
