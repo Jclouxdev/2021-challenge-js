@@ -11,4 +11,4 @@ const repeat = (text, size) => {
   } return str
 }
 
-console.log(repeat('a', 3))
+//console.log(repeat('a', 3))
