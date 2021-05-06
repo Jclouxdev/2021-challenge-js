@@ -4,11 +4,12 @@ given number Like the method developer.mozilla.org/en-US/docs/Web/JavaScript/Ref
 Of course you may not use the method directly
 */
 
-var str = ''
+
 const repeat = (text, size) => {
+  let str = ''
   for (let i = 0; i < size; i++) {
     str = str + text
   } return str
 }
 
-//console.log(repeat('a', 3))
+console.log(repeat('ba', 10))
