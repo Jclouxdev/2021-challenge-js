@@ -9,7 +9,8 @@ const repeat = (text, size) => {
   let str = ''
   for (let i = 0; i < size; i++) {
     str = str + text
-  } return str
+  } 
+  return str
 }
 
 console.log(repeat('ba', 10))
