@@ -4,11 +4,18 @@ Create the slice function that works like Array.slice and String.slice
 It takes an additional first argument which is the string or the array
 */
 
-const slice = (arr ,cut) => {
-  for(let i = 0; i < cut; i++) {
-    delete arr[i]
+const slice = (arg ,cut, maxCut) => {
+  if(Array.isArray(arg)) {
+    for(let i = 0; i < cut; i++) {
+      delete arg[i]
+    }
+    return arg
   }
-  return arr
+  else if (typeof arg === 'string') {
+    const argSplit = arg.split('');
+    argSplit.splice(0, cut);
+    return argSplit.join(''); 
+  }
 }
 
-console.log(slice([1,2,3,4,5,6], 4))
+console.log(slice('abcdef', 2))
