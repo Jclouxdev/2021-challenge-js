@@ -1,10 +1,12 @@
 const multiply = (a, b) => {
-  //let result = 0
-  //for (let i = 0; i < a; i++) {
-  //  result = result + b
-  //}
-  //return result
-  return Math.imul(a, b)
+  if(b == 0)
+  return 0;
+ 
+  if(b > 0 )
+  return (a + multiply(a, b-1));
+ 
+  if(b < 0 )
+  return -multiply(a, -b);
 }
 
 const divide = (a, b) => {
@@ -19,10 +21,9 @@ const divide = (a, b) => {
     }
     else if (b < 0)
   {
-    b = - b ;
-    negResult = true;
+  b = - b ;
+  negResult = true;
   }
-
   let quotient = 0;
   while (a >= b)
     {
@@ -35,10 +36,8 @@ const divide = (a, b) => {
 }
 
 const modulo = (a, b) => {
-  let c = a - b;
-  let d = parseInt(a / b);
-  let t = Math.imul(c, d)
-  return t;
+  let result = a - multiply(divide(a, b), b)
+  return result;
 }
 
 console.log(modulo(100, 7))
