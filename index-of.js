@@ -10,33 +10,30 @@ functions should have an array element as first argument, both indexOf and lastI
 fromIndex argument that allows you to begin searching from a specific index.
 */
 
-const indexOf = (el) => {
-  let arr = ["Rouge", "Jaune", "Noir", "Bleu", "Vert", "Gris", "Marron", "Gris", "Vert", "Rouge"];
-  for(let i = 0; i < arr.length; i++) {
-    if(arr[i] === el) {
-      return i+1
+const indexOf = (el, index) => {
+  for(let i = 0; i < el.length; i++) {
+    if(el[i] === index) {
+      return i
     }
   }
 }
 
-const lastIndexOf = (el) => {
-  let arr = ["Rouge", "Jaune", "Noir", "Bleu", "Vert", "Gris", "Marron", "Gris", "Vert", "Rouge"];
-  for(let i = arr.length; i > 0; i--) {
-    if(arr[i] === el) {
-      return i+1
+const lastIndexOf = (el, index) => {
+  for(let i = el.length; i > 0; i--) {
+    if(el[i] === index) {
+      return i
     }
   }
 }
 
-const includes = (el) => {
-  let arr = ["Rouge", "Jaune", "Noir", "Bleu", "Vert", "Gris", "Marron", "Gris", "Vert", "Rouge"];
+const includes = (el, index) => {
   let answer = -1
-  for(let i = 0; i < arr.length; i++) {
-    if(arr[i] === el) {
+  for(let i = 0; i < el.length; i++) {
+    if(el[i] === index) {
       answer = true
     }
   }
   return answer
 }
 
-console.log(includes("Vert"))
+console.log(indexOf([1, 2, 3, 4, 5, 4, 3, 2, 1], 2))
