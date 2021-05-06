@@ -11,11 +11,16 @@ const slice = (arg ,cut, maxCut) => {
     }
     return arg
   }
-  else if (typeof arg === 'string') {
+  else if (typeof arg === 'string' && cut > 0) {
     const argSplit = arg.split('');
     argSplit.splice(0, cut);
     return argSplit.join(''); 
   }
+  else if (typeof arg === 'string' && cut < 0) {
+    const argSplit = arg.split('')
+    argSplit.splice(0, argSplit.length + cut);
+    return argSplit.join('');
+  }
 }
 
-console.log(slice('abcdef', 2))
+console.log(slice('abcdef', -2))
