@@ -35,6 +35,7 @@ const round = (value) => {
     answer = value - toRound
   }
   if (negativeCheck === true) {
+    answer = value + toRound
     answer = -answer
   }
   return answer
