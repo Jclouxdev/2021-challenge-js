@@ -57,7 +57,7 @@ const floor = (value) => {
   if (toFloor === 0) {
     answer = value 
   } else if (value > 0 && toFloor != 0) {
-    answer = value + 1 - toFloor
+    answer = value - toFloor
   } else {
     answer = value - (1 + toFloor)
   }
