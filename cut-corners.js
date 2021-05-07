@@ -25,10 +25,12 @@ const round = (value) => {
   let answer = 0;
   let toRound = value % 1;
   if (toRound > 0.5) {
-    answer = value - toRound + 1
-  }
-  else {
+    answer = value + 1 - toRound
+  } else {
     answer = value - toRound
+  }
+  if (value < 0) {
+    answer = -answer
   }
   return answer
 }
