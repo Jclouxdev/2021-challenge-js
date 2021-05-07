@@ -10,7 +10,7 @@ const slice = (arg, start, end) => {
 
   start = start || 0;
   const sliceStart = start < 0 ? arg.length + start : start;
-  end = end || 0;
+  end = end === undefined ? arg.length : end;
   const sliceEnd = end < 0 ? arg.length + end : end;
 
   if (sliceEnd < sliceStart) {
@@ -25,4 +25,4 @@ const slice = (arg, start, end) => {
   return isStringArg ? chunk.join('') : chunk;
 }
 
-console.log(slice('abcdef', 0, -2))
+console.log(slice('abcdef', 2))
