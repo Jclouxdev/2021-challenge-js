@@ -26,11 +26,11 @@ const round = (value) => {
   let toRound = value % 1;
   let negativeCheck = false;
   if (value < 0) {
-    value= -value
+    value = -value
     negativeCheck = true
   }
   if (toRound > 0.5) {
-    answer = value + 1 - toRound
+    answer = value - toRound + 1
   } else {
     answer = value - toRound
   }
@@ -71,5 +71,5 @@ const trunc = (value) => {
 }
 
 console.log(round(-3)) //Expected output: 13
-console.log(trunc(-0.123)) //Expected output: 43
-console.log(trunc(42.84)) //Expected output: 0
+console.log(trunc(3)) //Expected output: 43
+console.log(trunc(-3)) //Expected output: 0
