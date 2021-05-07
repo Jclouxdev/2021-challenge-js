@@ -38,9 +38,11 @@ const keepLast = (str) => {
 
 const keepFirstLast = (str) => {
   let toSlice = str.slice(0 , 2)
-  toSlice = toSlice + str.slice(str.length - 2)
+  if(str.length > 2) {
+    toSlice = toSlice + str.slice(str.length - 2)
+  }
   return toSlice
 }
 
-console.log(keepFirstLast('Bonjour à tous'))
+console.log(keepFirstLast('effqqgqgq'))
 //console.log(str.length)
