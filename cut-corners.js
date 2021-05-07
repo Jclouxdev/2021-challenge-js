@@ -24,12 +24,17 @@ instead giving a different result in the case of negative numbers with a fractio
 const round = (value) => {
   let answer = 0;
   let toRound = value % 1;
+  let negativeCheck = false;
+  if (value < 0) {
+    value= -value
+    negativeCheck = true
+  }
   if (toRound > 0.5) {
     answer = value + 1 - toRound
   } else {
     answer = value - toRound
   }
-  if (value < 0) {
+  if (negativeCheck === true) {
     answer = -answer
   }
   return answer
@@ -65,6 +70,6 @@ const trunc = (value) => {
   return answer = value - toTrunc
 }
 
-console.log(trunc(13.37)) //Expected output: 13
+console.log(round(-3)) //Expected output: 13
 console.log(trunc(-0.123)) //Expected output: 43
 console.log(trunc(42.84)) //Expected output: 0
