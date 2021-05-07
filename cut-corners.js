@@ -22,33 +22,47 @@ instead giving a different result in the case of negative numbers with a fractio
 */
 
 const round = (value) => {
-  let toRound = 0;
-  toRound = value + 0.5;
-  return parseInt(toRound)
+  let answer = 0;
+  let toRound = value % 1;
+  if (toRound > 0.5) {
+    answer = value - toRound + 1
+  }
+  else {
+    answer = value - toRound
+  }
+  return answer
 }
 
 const ceil = (value) => {
-  let toCeil = parseInt(value);
-  if(toCeil < value) {
-    toCeil += 1;
+  let answer = 0;
+  let toCeil = value % 1;
+  if (value > 0 && toCeil != 0) {
+    answer = value + 1 - toCeil
+  } else {
+    answer = value - toCeil
   }
-  return toCeil
+  return answer
 }
 
 const floor = (value) => {
-  let toCeil = parseInt(value);
-  if(toCeil > value) {
-    toCeil -= 1;
+  let answer = 0;
+  let toFloor = value % 1;
+  if (toFloor === 0) {
+    answer = value 
+  } else if (value > 0 && toFloor != 0) {
+    answer = value + 1 - toFloor
+  } else {
+    answer = value - (1 + toFloor)
   }
-  return toCeil
+  return answer
 }
 
 const trunc = (value) => {
-  return parseInt(value)
+  let answer = 0;
+  let toTrunc = value % 1;
+  return answer = value - toTrunc
 }
 
 console.log(trunc(13.37)) //Expected output: 13
-console.log(trunc(42.84)) //Expected output: 42
-console.log(trunc(0.123)) //Expected output: 0
-console.log(trunc(-0.123)) //Expected output: -0
-console.log(trunc(-1.123)) //Expected output: -1
+console.log(trunc(-0.123)) //Expected output: 43
+console.log(trunc(42.84)) //Expected output: 0
