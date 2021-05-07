@@ -24,19 +24,19 @@ instead giving a different result in the case of negative numbers with a fractio
 const round = (value) => {
   let answer = 0;
   let toRound = value % 1;
-  let negativeCheck = false;
-  if (value < 0) {
+  //let negativeCheck = false;
+  /*if (value < 0) {
     value = -value
     negativeCheck = true
-  }
+  }*/
   if (toRound > 0.5) {
     answer = value - toRound + 1
   } else {
     answer = value - toRound
   }
-  if (negativeCheck === true) {
+  if (value < 0) {
     answer = value + toRound
-    answer = -answer
+    //answer = -answer
   }
   return answer
 }
