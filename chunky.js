@@ -16,7 +16,8 @@ const chunk = (arr, size) => {
     answer.push(arr.slice(0, size))
     arr = arr.slice(size)
     if(arr.length<size && arr.length != 0) {
-      return answer.push(arr)
+      answer.push(arr)
+      return answer
     }
   }
   return answer
