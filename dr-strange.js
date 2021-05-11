@@ -30,7 +30,7 @@ timeTravel({
 // Output: Date { 2020-05-29T21:22:22.000Z }
 */
 
-const addWeek = (date) => {
+/*const addWeek = (date) => {
   const day0 = new Date("0001-01-01")
   //Différence entre day0 et la date en ms
   const msDiff = date - day0;
@@ -51,7 +51,7 @@ const addWeek = (date) => {
       return "second" + date.toLocaleDateString("en-GB", {weekday: 'long'});
     }
     return date.toLocaleDateString("en-GB", { weekday: 'long' });
-};
+};*/
 
 function timeTravel({date,hour,minute,second}) {
   date.setHours(hour)
@@ -60,21 +60,7 @@ function timeTravel({date,hour,minute,second}) {
   return date
 }
 
-console.log(addWeek(new Date('0001-01-01'))) //=== 'Monday')
-console.log(addWeek(new Date('0001-01-02'))) //=== 'Tuesday')
-console.log(addWeek(new Date('0001-01-03'))) //=== 'Wednesday')
-console.log(addWeek(new Date('0001-01-10'))) //=== 'secondWednesday')
-console.log(addWeek(new Date('0001-01-11'))) //=== 'secondThursday')
-console.log(addWeek(new Date('0001-01-12'))) //=== 'secondFriday')
-
-console.log(timeTravel({
-  date: new Date('2020-05-29 23:25:22'),
-  hour: 21,
-  minute: 22,
-  second: 22,
-}))
-
-/*const dayNames = [
+const dayNames = [
   'Monday',
   'Tuesday',
   'Wednesday',
@@ -96,4 +82,19 @@ const firstDay = new Date('0001-01-01').getTime()
 
 function addWeek(date) {
   return dayNames[(date - firstDay) / day % 14]
-}*/
+}
+
+console.log(addWeek(new Date('0001-01-01'))) //=== 'Monday')
+console.log(addWeek(new Date('0001-01-02'))) //=== 'Tuesday')
+console.log(addWeek(new Date('0001-01-03'))) //=== 'Wednesday')
+console.log(addWeek(new Date('0001-01-10'))) //=== 'secondWednesday')
+console.log(addWeek(new Date('0001-01-11'))) //=== 'secondThursday')
+console.log(addWeek(new Date('0001-01-12'))) //=== 'secondFriday')
+console.log(addWeek(new Date('0001-01-08'))) //=== 'secondMonday')
+
+console.log(timeTravel({
+  date: new Date('2020-05-29 23:25:22'),
+  hour: 21,
+  minute: 22,
+  second: 22,
+}))
