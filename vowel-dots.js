@@ -13,16 +13,16 @@ const vowelDots = (str) => {
   if(stock === null){
     return str
   }
-  for(let i = 0;i<str.length;i++){
-    if(str[i]!==stock[j]){
+  for(let i = 0; i<str.length; i++){
+    if(str[i] !== stock[j]){
       answer += str[i]
     }
-    if(str[i]===stock[j]){
-      answer += str[i]+'.'
+    if(str[i] === stock[j]){
+      answer += str[i] + '.'
       j++
     }
     if(j === stock.length){
-      answer += str.slice(i+1)
+      answer += str.slice(i + 1)
       return answer
     }
   }    
