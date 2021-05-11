@@ -14,7 +14,8 @@ const letterSpaceNumber = (str) => {
       answer[i] = answer[i].slice(0, answer[i].length - 1)
     }
   } else { 
-    return answer = []
+    const answer = []
+    return answer
   }
   return answer
 }
