@@ -11,7 +11,7 @@ const letterSpaceNumber = (str) => {
   const answer = str.match(regex)
   if(answer != null) {
     for(let i = 0; i<answer.length; i++) {
-      answer[i] = answer[i].slice(0, answer[i].length - 1)
+      // answer[i] = answer[i].slice(0, answer[i].length - 1)
     }
   } else { 
     const answer = []
