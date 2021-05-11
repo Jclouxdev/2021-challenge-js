@@ -5,28 +5,28 @@ string and adds a . after every vowel
 called vowels.
 */
 
+const vowels = /[aeiouAEIOU]/g
 const vowelDots = (str) => {
-  const vowels = /[aeiouAEIOU]/g
-  const answer = str.match(vowels)
-  let stock = ''
+  const stock = str.match(vowels)
+  let answer = ''
   let j = 0
-  if(answer === null) {
+  if(stock === null){
     return str
   }
-  for (let i = 0; i<str.length; i++) {
-    if(str[i] !== answer[j]) {
-      stock += str[i]
+  for(let i = 0;i<str.length;i++){
+    if(str[i]!==stock[j]){
+      answer += str[i]
     }
-    if(str[i] === answer[j]) {
-      stock += str[i] + '.'
+    if(str[i]===stock[j]){
+      answer += str[i]+'.'
       j++
     }
-    if(j === answer.length) {
-      stock += str.slice(i + 1)
-      return stock
+    if(j === stock.length){
+      answer += str.slice(i+1)
+      return answer
     }
-  }
-  return stock
+  }    
+  return answer
 }
 
 console.log(vowelDots('ae')) //EO : a.e.
