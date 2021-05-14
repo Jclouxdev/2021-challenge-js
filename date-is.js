@@ -26,7 +26,9 @@ const isAfter = (date1, date2) => {
     return false //'erreur : la date est invalide'
   }
   let answer = date1 - date2
-  //On obtient un temps en ms, on se base dessus pour les if
+  //On obtient l'écart de temps en ms des deux dates, on se base dessus pour les if
+  //Si answer est négatif alors la date est avant
+  //Si answer est positif alors la date est après 
   if(answer > 0) {
     return true 
   } else {
