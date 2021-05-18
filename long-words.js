@@ -10,23 +10,23 @@ const oneLongWord = (array) => array.some((e) => e.length > 10)
 const noLongWords = (array) => array.every((e) => e.length < 7)
 
 //TEST//
-let arr1 = ['fill', 'carbon', 'chart', 'glare', 'express']
-let arr2 = ['double', 'afford', 'coalition', 'reaction', 'persist']
-let arr3 = ['leak', 'talk', 'bite', 'slip', 'free']
-let arr4 = ['fixture', 'opponent', 'coincide', 'residential', 'relaxation']
+let array1 = ['fill', 'carbon', 'chart', 'glare', 'express']
+let array2 = ['double', 'afford', 'coalition', 'reaction', 'persist']
+let array3 = ['leak', 'talk', 'bite', 'slip', 'free']
+let array4 = ['fixture', 'opponent', 'coincide', 'residential', 'relaxation']
 
 console.log('----longWords----')
-console.log(longWords(arr1))
-console.log(longWords(arr2))
-console.log(longWords(arr3))
-console.log(longWords(arr4))
+console.log(longWords(array1))
+console.log(longWords(array2))
+console.log(longWords(array3))
+console.log(longWords(array4))
 console.log('----oneLongWord----')
-console.log(oneLongWord(arr1))
-console.log(oneLongWord(arr2))
-console.log(oneLongWord(arr3))
-console.log(oneLongWord(arr4))
+console.log(oneLongWord(array1))
+console.log(oneLongWord(array2))
+console.log(oneLongWord(array3))
+console.log(oneLongWord(array4))
 console.log('----noLongWords----')
-console.log(noLongWords(arr1))
-console.log(noLongWords(arr2))
-console.log(noLongWords(arr3))
-console.log(noLongWords(arr4))
+console.log(noLongWords(array1))
+console.log(noLongWords(array2))
+console.log(noLongWords(array3))
+console.log(noLongWords(array4))
