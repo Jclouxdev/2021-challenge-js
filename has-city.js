@@ -5,8 +5,7 @@ country or not.
 
 If it is, it should be returned <city> is a city from <country>, otherwise <city> is not 
 a city from <country>.*/
-const hasCity = (country, array) =>
-  newFunction = (city) => {
+const hasCity = (country, array) => (city) => {
     for(let i = 0; i < array.length; i++){
       if(array[i] === city){
         return `${city} is a city from ${country}`
