@@ -11,7 +11,7 @@ export const pimp = () => {
     i++
     k++
     if(k === 15){
-      el.classList.add('unmpimp')
+      el.classList.add('unpimp')
     }
   }
   if(calc % 2 != 0){
