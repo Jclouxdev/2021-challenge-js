@@ -2,7 +2,8 @@
 //Key Return = 8
 export const compose = () => {
   document.addEventListener('keydown', (event) => {
-    if(event.keyCode === 32){
+    //C'était escape pas space trou de balle
+    if(event.keyCode === 27){
       document.querySelectorAll('div').forEach((e) => {
         e.remove()
       })
