@@ -5,12 +5,15 @@
 //from the object passed as argument.
 const pick = (obj, keys) => {
   const keysArray = Array.isArray(keys) ? keys : [keys];
-  return keysArray.reduce((acc, k) => {
-    if (obj.hasOwnProperty(k)) {
-      return { ...acc, [k]: obj[k] };
+  const alteredObj = { ...obj };
+
+  for (const [key, value] of Object.entries(alteredObj)) {
+    if (!keysArray.includes(key)) {
+      delete alteredObj[key];
     }
-    return acc;
-  }, {});
+  }
+
+  return alteredObj;
 };
 
 //Create a omit function that takes an object and keys. 
@@ -18,7 +21,7 @@ const pick = (obj, keys) => {
 //from the object passed as argument.
 const omit = (obj, keys) => {
   const keysArray = Array.isArray(keys) ? keys : [keys];
-  const alteredObj = obj;
+  const alteredObj = { ...obj };
   keysArray.map((k) => delete alteredObj[k]);
   return alteredObj;
 };
