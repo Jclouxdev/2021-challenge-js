@@ -5,7 +5,8 @@
 //from the object passed as argument.
 const pick = (obj, keys) => {
   const myObject = {}
-  Object.keys(obj).forEach(key => {
+  let getKeys = Object.keys(obj)
+  getKeys.forEach(key => {
     if(key === keys){
       myObject[key] = obj[key]
     }
@@ -18,7 +19,8 @@ const pick = (obj, keys) => {
 //from the object passed as argument.
 const omit = (obj, keys) => {
   const myObject = {}
-  Object.keys(obj).forEach(key => {
+  let getKeys = Object.keys(obj)
+  getKeys.forEach(key => {
     if(key !== keys){
       myObject[key] = obj[key]
     }
