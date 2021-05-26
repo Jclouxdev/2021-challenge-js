@@ -4,7 +4,8 @@
 //This function create a new object that pick only the keys, in the second argument, 
 //from the object passed as argument.
 const pick = (obj, keys) => {
-  return keys.reduce((acc, k) => {
+  const keysArray = Array.isArray(keys) ? keys : [keys];
+  return keysArray.reduce((acc, k) => {
     if (obj.hasOwnProperty(k)) {
       return { ...acc, [k]: obj[k] };
     }
@@ -16,8 +17,9 @@ const pick = (obj, keys) => {
 //This function create a new object that omit only the keys, in the second argument, 
 //from the object passed as argument.
 const omit = (obj, keys) => {
+  const keysArray = Array.isArray(keys) ? keys : [keys];
   const alteredObj = obj;
-  keys.map((k) => delete alteredObj[k]);
+  keysArray.map((k) => delete alteredObj[k]);
   return alteredObj;
 };
 
