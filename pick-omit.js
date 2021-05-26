@@ -7,7 +7,7 @@ const pick = (obj, keys) => {
   const myObject = {}
   let getKeys = Object.keys(obj)
   getKeys.forEach(key => {
-    if(key === keys){
+    if(key == keys){
       myObject[key] = obj[key]
     }
   })
@@ -21,7 +21,7 @@ const omit = (obj, keys) => {
   const myObject = {}
   let getKeys = Object.keys(obj)
   getKeys.forEach(key => {
-    if(key !== keys){
+    if(key != keys){
       myObject[key] = obj[key]
     }
   })
