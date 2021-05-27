@@ -19,13 +19,18 @@ fusion({ a: 1, b: { c: 'Salem' } }, { a: 10, x: [], b: { c: 'alem' } })
 const fusion = (el1, el2) => {
   // type mismatch, replace value in first by second value
   // only if second value defined
-  // return 1 ?? 2 : nullish coalescing operator : return 2 if 1 is null or undefined
   if (typeof el1 !== typeof el2) {
     return el2 ?? el1;
   }
 
-  // type object, call fusion recursively to fusion properties
+  // it's an objet, call fusion recursively to fusion properties
   if (typeof el1 === "object" && !Array.isArray(el1)) {
+    Object.entries(el2).map(([key]) => {
+      if (!el1.hasOwnProperty(key)) {
+        el1[key] = undefined;
+      }
+    });
+
     const el1Buffer = {};
     for (const [key] of Object.entries(el1)) {
       el1Buffer[key] = fusion(el1[key], el2[key]);
@@ -33,8 +38,8 @@ const fusion = (el1, el2) => {
     return el1Buffer;
   }
 
-  if (Array.isArray(el1) && Array.isArray(el2)) {
-    return el1.concat(el2);
+  if (Array.isArray(el1)) {
+    return [...el1, ...el2];
   }
 
   if (typeof el1 === "string") {
