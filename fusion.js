@@ -18,8 +18,10 @@ fusion({ a: 1, b: { c: 'Salem' } }, { a: 10, x: [], b: { c: 'alem' } })
 // -> { a: 11, x: [], b: { c: 'Salem alem' } }*/
 const fusion = (el1, el2) => {
   // type mismatch, replace value in first by second value
+  // only if second value defined
+  // return 1 ?? 2 : nullish coalescing operator : return 2 if 1 is null or undefined
   if (typeof el1 !== typeof el2) {
-    return el2;
+    return el2 ?? el1;
   }
 
   // type object, call fusion recursively to fusion properties
@@ -35,11 +37,11 @@ const fusion = (el1, el2) => {
     return el1.concat(el2);
   }
 
-  if (typeof el1 === "string" && typeof el2 === "string") {
+  if (typeof el1 === "string") {
     return `${el1} ${el2}`;
   }
 
-  if (typeof el1 === "number" && typeof el2 === "number") {
+  if (typeof el1 === "number") {
     return el1 + el2;
   }
 };
