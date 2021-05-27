@@ -17,7 +17,6 @@ If it is an object you must fusion them recursively
 fusion({ a: 1, b: { c: 'Salem' } }, { a: 10, x: [], b: { c: 'alem' } })
 // -> { a: 11, x: [], b: { c: 'Salem alem' } }*/
 const fusion = (el1, el2) => {
-  console.log({ anotherTest: "here", el1: typeof el1, el2: typeof el2 });
   // type mismatch, replace value in first by second value
   // only if second value defined
   if (typeof el1 !== typeof el2) {
@@ -25,7 +24,7 @@ const fusion = (el1, el2) => {
   }
 
   // it's an objet, call fusion recursively to fusion properties
-  if (typeof el1 === "object" && !Array.isArray(el1)) {
+  if (Object.prototype.toString.call(el1) === "[object Object]") {
     Object.entries(el2).map(([key]) => {
       if (!el1.hasOwnProperty(key)) {
         el1[key] = undefined;
@@ -34,11 +33,7 @@ const fusion = (el1, el2) => {
 
     let el1Buffer = {};
     for (const [key] of Object.entries(el1)) {
-      if (Object.prototype.toString.call(el2[key]) === "[object Object]") {
-        el1Buffer[key] = fusion(el1[key], el2[key]);
-      } else {
-        el1Buffer = { ...el1Buffer, ...{ [key]: el2[key] } };
-      }
+      el1Buffer[key] = fusion(el1[key], el2[key]);
     }
     return el1Buffer;
   }
@@ -54,6 +49,8 @@ const fusion = (el1, el2) => {
   if (typeof el1 === "number") {
     return el1 + el2;
   }
+
+  return (el1 = el2);
 };
 
 //TEST
