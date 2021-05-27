@@ -17,6 +17,7 @@ If it is an object you must fusion them recursively
 fusion({ a: 1, b: { c: 'Salem' } }, { a: 10, x: [], b: { c: 'alem' } })
 // -> { a: 11, x: [], b: { c: 'Salem alem' } }*/
 const fusion = (el1, el2) => {
+  console.log(typeof /\w/);
   // type mismatch, replace value in first by second value
   // only if second value defined
   if (typeof el1 !== typeof el2) {
@@ -31,9 +32,13 @@ const fusion = (el1, el2) => {
       }
     });
 
-    const el1Buffer = {};
+    let el1Buffer = {};
     for (const [key] of Object.entries(el1)) {
-      el1Buffer[key] = fusion(el1[key], el2[key]);
+      if (el2[key] instanceof RegExp) {
+        el1Buffer = { ...el1Buffer, [key]: el2[key] };
+      } else {
+        el1Buffer[key] = fusion(el1[key], el2[key]);
+      }
     }
     return el1Buffer;
   }
