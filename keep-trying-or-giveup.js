@@ -33,17 +33,24 @@ const retry = (count, callback) => {
 };
 
 const timeout = (delay, callback) => {
-  return (...args) =>
-    new Promise(async (resolve, reject) => {
-      setTimeout(() => {
-        reject("timeout");
-      }, delay);
-
+  return async (...args) => {
+    const timeoutPromise = new Promise((resolve, reject) => {
+      setTimeout(() => reject('timeout'), delay);
+    });
+    const cbPromise = new Promise(async (resolve, reject) => {
       try {
         const cbRes = await callback(...args);
         resolve(cbRes);
       } catch (e) {
         reject(e);
-      };
-    })
-}
+      }
+    });
+
+    try {
+      const raceResult = await Promise.race([timeoutPromise, cbPromise]);
+      return raceResult;
+    } catch (e) {
+      throw new Error(e);
+    }
+  };
+};
