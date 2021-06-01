@@ -7,13 +7,13 @@ For each interpolation point you must call callback function with
 parameter - interpolation point ([x, y]). Each interpolation point should be calculated 
 with interval of duration / step.*/
 
-const interpolation = ({step, start, callback, duration}) => {
+const interpolation = ({step, start, end, callback, duration}) => {
   let x = start
   let y = duration / step
   let timer = setInterval(() => {
     callback([x, y]);
-    x += (end - start) / step
-    y += duration / step
+    x += (end - start) / step;
+    y += duration / step;
     if(Math.round(x * 100) / 100 === end) clearInterval(timer);
   }, duration / step);
 }
