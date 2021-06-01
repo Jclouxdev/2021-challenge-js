@@ -8,8 +8,8 @@ parameter - interpolation point ([x, y]). Each interpolation point should be cal
 with interval of duration / step.*/
 
 const interpolation = ({step, start, end, callback, duration}) => {
-  let x = start
-  let y = duration / step
+  let x = start;
+  let y = duration / step;
   let timer = setInterval(() => {
     callback([x, y]);
     x += (end - start) / step;
