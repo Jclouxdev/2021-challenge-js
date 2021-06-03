@@ -14,7 +14,7 @@ The parsed object contains one of those 2 properties:
 "data" the actual data to return
 "error" the error message to throw*/
 
-const getJSON = (path, params = {}) => {
+const getJSON = async (path, params = {}) => {
   const parsedParams = Object.entries(params)
     .reduce((acc, [key, value]) => {
       acc.push(encodeURI(key) + "=" + encodeURI(value).replace("20%", "+"));
